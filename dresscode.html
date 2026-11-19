@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Dress Code — Sanket &amp; Dr. Sneha</title>
+<link rel="stylesheet" href="assets/styles.css"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&amp;family=Cormorant+SC:wght@400;500;600&amp;family=Great+Vibes&amp;display=swap"/>
+<style>
+  :root{
+    --maroon:#7b1e2e; --gold:#c08a3e; --gold-lt:#e0c088; --ink:#5b4636;
+    --paper:#fdf3e0;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:linear-gradient(180deg,#fdf3e0 0%,#fbeed7 55%,#f3e2c2 100%);
+    color:var(--ink);
+    font-family:'Cormorant Garamond',serif;
+    text-align:center;
+    overflow-x:hidden;
+  }
+  .caps{font-family:'Cormorant SC',serif}
+  .script{font-family:'Great Vibes',cursive}
+
+  .back-link{
+    position:absolute;top:16px;left:16px;z-index:5;
+    display:inline-flex;align-items:center;gap:6px;
+    font-family:'Cormorant SC',serif;font-size:.7rem;letter-spacing:.18em;
+    color:var(--maroon);text-decoration:none;
+    background:rgba(253,251,247,.9);border:1px solid rgba(192,138,62,.55);
+    border-radius:9999px;padding:8px 16px;
+    box-shadow:0 2px 10px rgba(0,0,0,.1);
+  }
+
+  .page{max-width:1060px;margin:0 auto;padding:64px 16px 48px;position:relative}
+
+  .plaque{
+    display:inline-block;border:1.5px solid var(--gold);border-radius:14px;
+    padding:8px 22px;color:var(--maroon);
+    font-family:'Cormorant SC',serif;font-size:1.15rem;letter-spacing:.2em;
+    background:rgba(255,255,255,.5);
+  }
+  h1.big{
+    font-family:'Cormorant SC',serif;font-weight:600;color:var(--maroon);
+    font-size:clamp(1.7rem,5.5vw,2.9rem);letter-spacing:.08em;margin:18px 0 0;line-height:1.1;
+  }
+  .special{
+    font-family:'Great Vibes',cursive;color:#d4687a;
+    font-size:clamp(2rem,6.5vw,3.4rem);line-height:1.15;margin:4px 0 0;
+  }
+  .rule{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    max-width:260px;margin:18px auto;opacity:.85;
+  }
+  .rule span.line{height:1px;flex:1;background:linear-gradient(to right,transparent,var(--gold))}
+  .rule span.line.r{background:linear-gradient(to left,transparent,var(--gold))}
+  .rule span.fl{color:var(--gold);font-size:12px}
+  .intro{font-size:1.15rem;font-style:italic;max-width:460px;margin:0 auto;line-height:1.5}
+  .guide-tag{
+    font-family:'Cormorant SC',serif;color:#b8404f;font-weight:600;
+    letter-spacing:.35em;font-size:clamp(.9rem,3vw,1.25rem);margin:22px 0 8px;
+  }
+
+  .panel{
+    border:1px solid rgba(192,138,62,.4);border-radius:22px;
+    margin:34px 0;padding:34px 26px 30px;text-align:center;
+    box-shadow:0 14px 34px rgba(123,30,46,.08);
+    position:relative;
+  }
+  .panel.haldi{background:linear-gradient(180deg,#fdf6dd,#faeec9)}
+  .panel.mehendi{background:linear-gradient(180deg,#eef7e4,#ddeecd)}
+  .panel.sangeet{background:linear-gradient(180deg,#f6eefa,#eee0f4)}
+  .panel.wedding{background:linear-gradient(180deg,#fdeee0,#fbe3cf)}
+
+  .ev-icon{
+    width:74px;height:74px;border-radius:9999px;margin:0 auto;
+    border:1.5px solid var(--gold);display:grid;place-items:center;
+    background:rgba(255,255,255,.55);
+  }
+  .ev-icon svg{
+    width:38px;height:38px;stroke:currentColor;fill:none;stroke-width:1.55;
+    stroke-linecap:round;stroke-linejoin:round;
+  }
+  .haldi   .ev-icon{color:#a2701c}
+  .mehendi .ev-icon{color:#4a7a3c}
+  .sangeet .ev-icon{color:#6c3f8f}
+  .wedding .ev-icon{color:#b8404f}
+  .ev-name{
+    font-family:'Cormorant SC',serif;font-weight:600;letter-spacing:.14em;
+    font-size:clamp(1.5rem,4.5vw,2.1rem);margin:12px 0 0;
+  }
+  .haldi  .ev-name{color:#a2701c}
+  .mehendi .ev-name{color:#4a7a3c}
+  .sangeet .ev-name{color:#6c3f8f}
+  .wedding .ev-name{color:#b8404f}
+  .ev-theme{font-family:'Great Vibes',cursive;font-size:clamp(1.4rem,4vw,1.9rem);margin:2px 0 0}
+  .haldi  .ev-theme{color:#c2547a}
+  .mehendi .ev-theme{color:#6a9a55}
+  .sangeet .ev-theme{color:#8a5eae}
+  .wedding .ev-theme{color:#d4687a}
+  .ev-desc{max-width:430px;margin:12px auto 0;font-size:1.1rem;font-style:italic;line-height:1.5}
+  .ev-tag{
+    display:inline-block;margin:10px auto 0;
+    font-family:'Cormorant SC',serif;font-size:.58rem;letter-spacing:.24em;
+    font-weight:600;color:#4a7a3c;
+    border:1px solid rgba(74,122,60,.45);border-radius:9999px;
+    padding:5px 14px;background:rgba(255,255,255,.55);
+  }
+  .ev-note{
+    max-width:440px;margin:16px auto 0;font-size:1rem;font-style:italic;
+    line-height:1.5;color:var(--maroon);opacity:.92;
+  }
+
+  .sub-label{
+    font-family:'Cormorant SC',serif;font-size:.8rem;letter-spacing:.28em;
+    font-weight:600;margin:26px 0 14px;
+  }
+  .haldi  .sub-label{color:#a2701c}
+  .mehendi .sub-label{color:#4a7a3c}
+  .sangeet .sub-label{color:#6c3f8f}
+  .wedding .sub-label{color:#b8404f}
+
+  .swatches{display:flex;flex-wrap:wrap;justify-content:center;gap:18px 26px;max-width:560px;margin:0 auto}
+  .swatch{width:78px}
+  .swatch .dot{
+    width:44px;height:44px;border-radius:9999px;margin:0 auto;
+    border:2px solid rgba(255,255,255,.9);
+    box-shadow:0 2px 8px rgba(0,0,0,.18);
+  }
+  .swatch .nm{font-family:'Cormorant SC',serif;font-size:.62rem;letter-spacing:.08em;margin-top:6px;line-height:1.25}
+
+  .who{
+    display:inline-block;font-family:'Cormorant SC',serif;font-size:.62rem;
+    letter-spacing:.3em;font-weight:700;border-radius:9999px;
+    padding:4px 16px;margin:18px 0 12px;
+    background:rgba(255,255,255,.5);border:1px solid currentColor;
+  }
+  .haldi   .who{color:#a2701c}
+  .mehendi .who{color:#4a7a3c}
+  .sangeet .who{color:#6c3f8f}
+  .wedding .who{color:#b8404f}
+
+  .outfits{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;max-width:820px;margin:0 auto}
+  .outfit{
+    width:118px;border-radius:12px;padding:14px 8px 12px;
+    background:rgba(255,255,255,.62);border:1px solid rgba(192,138,62,.35);
+    box-shadow:0 4px 12px rgba(0,0,0,.07);
+  }
+  .outfit .oi{
+    display:block;width:34px;height:34px;margin:0 auto;
+    stroke:currentColor;fill:none;stroke-width:1.6;
+    stroke-linecap:round;stroke-linejoin:round;
+  }
+  .haldi   .outfit .oi{color:#a2701c}
+  .mehendi .outfit .oi{color:#4a7a3c}
+  .sangeet .outfit .oi{color:#6c3f8f}
+  .wedding .outfit .oi{color:#b8404f}
+  .outfit .on{
+    font-family:'Cormorant SC',serif;font-size:.66rem;letter-spacing:.06em;
+    margin-top:8px;line-height:1.3;color:var(--maroon);
+  }
+
+  .mantras{
+    display:flex;flex-wrap:wrap;justify-content:center;gap:8px 22px;
+    margin:44px auto 0;max-width:860px;
+    font-family:'Cormorant SC',serif;font-size:.78rem;letter-spacing:.14em;color:var(--maroon);
+  }
+  .mantras .m{display:inline-flex;align-items:center;gap:7px}
+  .mantras .m span.lotus{color:#d4687a;font-size:.95rem}
+  .closing{font-family:'Great Vibes',cursive;color:#b8404f;font-size:clamp(1.6rem,5vw,2.2rem);margin:26px 0 6px}
+  .sign{font-family:'Cormorant SC',serif;letter-spacing:.3em;font-size:.8rem;color:var(--gold);font-weight:600}
+
+  .home-btn{
+    display:inline-flex;align-items:center;gap:8px;margin-top:34px;
+    font-family:'Cormorant SC',serif;font-size:.72rem;letter-spacing:.18em;font-weight:700;
+    color:var(--maroon);text-decoration:none;
+    background:#fdfbf7;border:1.5px solid var(--gold);border-radius:9999px;
+    padding:12px 30px;box-shadow:0 4px 16px rgba(0,0,0,.15);
+  }
+  @media (max-width:520px){
+    .panel{padding:26px 14px 24px}
+    .outfit{width:104px}
+  }
+</style>
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg"/><link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png"/><link rel="apple-touch-icon" href="assets/apple-touch-icon.png"/><meta name="theme-color" content="#7b1e2e"/><meta name="description" content="Dress code guide for Sanket &amp; Dr. Sneha's wedding — Haldi, Mehendi, Sangeet, Vidhi &amp; Wedding."/><meta property="og:type" content="website"/><meta property="og:url" content="https://sanket-sneha-wedding.vercel.app/dresscode.html"/><meta property="og:title" content="Dress Code — Sanket &amp; Dr. Sneha"/><meta property="og:description" content="Each celebration has its own vibe. Here is what to wear."/><meta property="og:image" content="https://sanket-sneha-wedding.vercel.app/assets/og-image.png"/><meta name="twitter:card" content="summary_large_image"/></head>
+<body>
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true"><defs>
+<symbol id="ev-mehendi" viewBox="0 0 48 48">
+  <path d="M24 41V22"/>
+  <path d="M24 22q-1-9 6-13 3 8-6 13z"/>
+  <path d="M24 26q-8-1-10-8 8-2 10 8z"/>
+  <path d="M24 33q7 0 9-6-7-1-9 6z"/>
+  <circle cx="24" cy="15" r="1.1"/><circle cx="18" cy="23" r="1"/><circle cx="30" cy="30" r="1"/>
+</symbol>
+<symbol id="ev-haldi" viewBox="0 0 48 48">
+  <circle cx="24" cy="24" r="4.5"/>
+  <path d="M24 19.5q-1.5-6 0-9.5 1.5 3.5 0 9.5zM24 28.5q1.5 6 0 9.5-1.5-3.5 0-9.5z"/>
+  <path d="M19.5 24q-6-1.5-9.5 0 3.5 1.5 9.5 0zM28.5 24q6 1.5 9.5 0-3.5-1.5-9.5 0z"/>
+  <path d="M20.8 20.8q-4.7-4-7.4-4.4 0.4 2.7 7.4 4.4zM27.2 27.2q4.7 4 7.4 4.4-.4-2.7-7.4-4.4z"/>
+  <path d="M27.2 20.8q4.7-4 7.4-4.4-.4 2.7-7.4 4.4zM20.8 27.2q-4.7 4-7.4 4.4.4-2.7 7.4-4.4z"/>
+</symbol>
+<symbol id="ev-sangeet" viewBox="0 0 48 48">
+  <path d="M15 14v17"/><path d="M32 11v17"/>
+  <path d="M15 14q8.5-3.5 17-3"/>
+  <ellipse cx="12" cy="32" rx="3.2" ry="2.6"/>
+  <ellipse cx="29" cy="29" rx="3.2" ry="2.6"/>
+  <path d="M20 38q4 2 8 0"/>
+  <path d="M36 20q3 1 3 3M39 34q2 .5 2 2"/>
+</symbol>
+<symbol id="ev-wedding" viewBox="0 0 48 48">
+  <path d="M24 5v4M22 7h4"/>
+  <path d="M24 9q-4 3-4 7h8q0-4-4-7z"/>
+  <path d="M17 16h14l2 4H15z"/>
+  <path d="M16 20v20M32 20v20"/>
+  <path d="M20 40V29q4-5 8 0v11"/>
+  <path d="M12 40h24"/>
+  <path d="M19 24h10"/>
+</symbol>
+<symbol id="ic-kurta" viewBox="0 0 48 48">
+  <path d="M18.5 9.5q5.5-3.2 11 0l6 4-3.2 5.6-2.3-1.6V39q-7.5 2-15 0V17.5l-2.3 1.6L9.5 13.5z"/>
+  <path d="M20.5 10q3.5 3.6 7 0"/>
+  <path d="M18 32v7M30 32v7"/>
+</symbol>
+<symbol id="ic-kurta-set" viewBox="0 0 48 48">
+  <path d="M18.5 7.5q5.5-3.2 11 0l5.6 3.8-3.1 5.4-2.2-1.5v13.3q-7.3 1.9-14.6 0V15.2l-2.2 1.5-3.1-5.4z"/>
+  <path d="M20.5 8q3.5 3.6 7 0"/>
+  <path d="M16.8 29.5 16.2 43h5.2l1.4-13M31.2 29.5 31.8 43h-5.2l-1.4-13"/>
+</symbol>
+<symbol id="ic-saree" viewBox="0 0 48 48">
+  <path d="M19.5 8.5q4.5-2.6 9 0v6.5h-9z"/>
+  <path d="M20.5 9q3.5 3.2 7 0"/>
+  <path d="M19.5 15q-6 11-8.5 27h26Q34.5 26 28.5 15z"/>
+  <path d="M28 9.5q5.5 1.2 7.5 5.5-1 9-4.5 15.5-2 4-2.5 11.5"/>
+  <path d="M14 35q10 3 20 0"/>
+</symbol>
+<symbol id="ic-lehenga" viewBox="0 0 48 48">
+  <path d="M19 8.5q5-2.6 10 0v5.5q-5 2-10 0z"/>
+  <path d="M20.5 9q3.5 3.2 7 0"/>
+  <path d="M19.5 19.5q-7 9-9.5 22.5h28Q35.5 28.5 28.5 19.5z"/>
+  <path d="M13.5 33q10.5 3.5 21 0"/>
+  <path d="M29.5 10q7 2.5 8.5 8.5"/>
+</symbol>
+<symbol id="ic-gown" viewBox="0 0 48 48">
+  <path d="M19.5 8.5q4.5-2.6 9 0v6q0 4.5-2 8 5.5 7.5 6.5 19.5h-18q1-12 6.5-19.5-2-3.5-2-8z"/>
+  <path d="M20.5 9q3.5 3.2 7 0"/>
+  <path d="M17.5 30q6.5 2.5 13 0"/>
+</symbol>
+<symbol id="ic-blazer" viewBox="0 0 48 48">
+  <path d="M18.5 9.5 11 14l-2.5 6 3.5 1.8V40h10M29.5 9.5 37 14l2.5 6-3.5 1.8V40H26"/>
+  <path d="M18.5 9.5 24 17.5l5.5-8"/>
+  <path d="M18.5 9.5 20 19l-3.5 6M29.5 9.5 28 19l3.5 6"/>
+  <path d="M22 40V26M26 40V26"/>
+</symbol>
+<symbol id="ic-bandhgala" viewBox="0 0 48 48">
+  <path d="M19 9.5q5-3 10 0l5.5 3.8-2.8 5.4-1.7-1.2V40q-6.5 1.8-13 0V17.5l-1.7 1.2-2.8-5.4z"/>
+  <path d="M20.5 9q1.5 3 3.5 3t3.5-3"/>
+  <path d="M20.5 12.5q3.5 2.6 7 0"/>
+  <path d="M24 15.5V40"/>
+  <path d="M21.6 21h.8M21.6 26h.8M21.6 31h.8"/>
+</symbol>
+<symbol id="ic-sherwani" viewBox="0 0 48 48">
+  <path d="M19 7.5q5-3 10 0l5.5 3.6-2.8 5.2-1.7-1.2v22.6q-6.5 1.8-13 0V15.1l-1.7 1.2-2.8-5.2z"/>
+  <path d="M20.5 7q1.5 3 3.5 3t3.5-3"/>
+  <path d="M24 13v24.5"/>
+  <path d="M21.7 18h.6M21.7 23h.6M21.7 28h.6M21.7 33h.6"/>
+  <path d="M17.6 37.5 17 44h14l-.6-6.5"/>
+</symbol>
+<symbol id="ic-saafa" viewBox="0 0 48 48">
+  <path d="M16.5 16.5q0-8 7.5-8t7.5 8"/>
+  <path d="M16 16.5q8-3.5 16 0 .5 3.5-1.5 4.8-6.5 2-13 0-2-1.3-1.5-4.8z"/>
+  <path d="M30.5 10.5q3.5-3 5.5-.5t-3 6.5"/>
+  <path d="M24 6.5V9"/>
+  <path d="M20.5 23.5q3.5 2.4 7 0v3.2q-3.5 1.8-7 0z"/>
+  <path d="M20.5 27q-4.5 2-5.5 6.5V43h18v-9.5q-1-4.5-5.5-6.5"/>
+  <path d="M24 28.5V43"/>
+</symbol>
+</defs></svg>
+
+<a class="back-link" href="index.html?open=1">&#8592;&nbsp;INVITATION</a>
+<main class="page">
+
+  <div class="plaque">S &amp; S</div>
+  <h1 class="big">OUR BIG DAYS,</h1>
+  <p class="special">Your Special Style &#9825;</p>
+  <div class="rule"><span class="line"></span><span class="fl">&#10041;</span><span class="line r"></span></div>
+  <p class="intro">Each celebration has its own vibe,<br/>and we can&rsquo;t wait to celebrate with you in style!</p>
+  <p class="guide-tag">&bull;&nbsp; DRESS CODE GUIDE &nbsp;&bull;</p>
+
+  <!-- ================= MEHENDI ================= -->
+  <section class="panel mehendi">
+    <div class="ev-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#ev-mehendi"/></svg></div>
+    <h2 class="ev-name">MEHENDI</h2>
+    <p class="ev-theme">Shades of Green</p>
+    <p class="ev-tag">AN INFORMAL EVENING AT HOME</p>
+    <p class="ev-desc">Henna, music and a little mischief, just with our closest. Come dressed in your favourite green.</p>
+
+    <p class="sub-label">COLOURS</p>
+    <div class="swatches">
+      <div class="swatch"><div class="dot" style="background:#6b8e23"></div><div class="nm">Mehendi Green</div></div>
+      <div class="swatch"><div class="dot" style="background:#2e8b57"></div><div class="nm">Emerald</div></div>
+      <div class="swatch"><div class="dot" style="background:#a9b585"></div><div class="nm">Sage</div></div>
+      <div class="swatch"><div class="dot" style="background:#808000"></div><div class="nm">Olive</div></div>
+      <div class="swatch"><div class="dot" style="background:#a8d5ba"></div><div class="nm">Mint</div></div>
+      <div class="swatch"><div class="dot" style="background:#14532d"></div><div class="nm">Bottle Green</div></div>
+    </div>
+
+    <p class="sub-label">OUTFIT INSPIRATION</p>
+    <p class="ev-note">Any green outfit &mdash; pick the shade you love.</p>
+  </section>
+
+  <!-- ================= HALDI ================= -->
+  <section class="panel haldi">
+    <div class="ev-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#ev-haldi"/></svg></div>
+    <h2 class="ev-name">HALDI</h2>
+    <p class="ev-theme">Marigold &amp; Sunshine</p>
+    <p class="ev-desc">Bright, sunlit and unmissable. Think marigold, turmeric and everything that glows in the morning light.</p>
+
+    <p class="sub-label">COLOURS</p>
+    <div class="swatches">
+      <div class="swatch"><div class="dot" style="background:#f2a20c"></div><div class="nm">Marigold</div></div>
+      <div class="swatch"><div class="dot" style="background:#f9cc2e"></div><div class="nm">Sunshine Yellow</div></div>
+      <div class="swatch"><div class="dot" style="background:#e59a11"></div><div class="nm">Turmeric</div></div>
+      <div class="swatch"><div class="dot" style="background:#f0781f"></div><div class="nm">Tangerine</div></div>
+      <div class="swatch"><div class="dot" style="background:#f2604a"></div><div class="nm">Coral</div></div>
+      <div class="swatch"><div class="dot" style="background:#e5457d"></div><div class="nm">Rani Pink</div></div>
+      <div class="swatch"><div class="dot" style="background:#7ba428"></div><div class="nm">Leaf Green</div></div>
+      <div class="swatch"><div class="dot" style="background:#f8f3e6"></div><div class="nm">Ivory</div></div>
+    </div>
+
+    <p class="sub-label">OUTFIT INSPIRATION</p>
+    <span class="who">WOMEN</span>
+    <div class="outfits">
+      <div class="outfit"><svg class="oi" viewBox="0 0 48 48" role="img" aria-label="Churidar"><use href="#ic-kurta-set"/></svg><div class="on">Churidar</div></div>
+      <div class="outfit"><svg class="oi" viewBox="0 0 48 48" role="img" aria-label="Salwar Kameez"><use href="#ic-kurta-set"/></svg><div class="on">Salwar Kameez</div></div>
+    </div>
+    <p class="ev-note">Yellow is the hero &mdash; the brighter the better &#9825;</p>
+    <span class="who">MEN</span>
+    <div class="outfits">
+      <div class="outfit"><svg class="oi" viewBox="0 0 48 48" role="img" aria-label="Floral Kurta"><use href="#ic-kurta"/></svg><div class="on">Floral Kurta</div></div>
+      <div class="outfit"><svg class="oi" viewBox="0 0 48 48" role="img" aria-label="Yellow Kurta"><use href="#ic-kurta"/></svg><div class="on">Yellow Kurta</div></div>
+    </div>
+  </section>
+
+  <!-- ================= SANGEET ================= -->
+  <section class="panel sangeet">
+    <div class="ev-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#ev-sangeet"/></svg></div>
+    <h2 class="ev-name">SANGEET</h2>
+    <p class="ev-theme">Sparkle &amp; Glam</p>
+    <p class="ev-desc">Time to shine and dance the night away. Jewel brights, metallics and anything that catches the light.</p>
+
+    <p class="sub-label">COLOURS</p>
+    <div class="swatches">
+      <div class="swatch"><div class="dot" style="background:#e0ac1c"></div><div class="nm">Liquid Gold</div></div>
+      <div class="swatch"><div class="dot" style="background:#c2c4cc"></div><div class="nm">Silver</div></div>
+      <div class="swatch"><div class="dot" style="background:#d8a292"></div><div class="nm">Rose Gold</div></div>
+      <div class="swatch"><div class="dot" style="background:#0f8a5f"></div><div class="nm">Emerald</div></div>
+      <div class="swatch"><div class="dot" style="background:#d6197d"></div><div class="nm">Fuchsia</div></div>
+      <div class="swatch"><div class="dot" style="background:#2f5bd0"></div><div class="nm">Electric Blue</div></div>
+      <div class="swatch"><div class="dot" style="background:#8338c4"></div><div class="nm">Amethyst</div></div>
+      <div class="swatch"><div class="dot" style="background:#e8d3a2"></div><div class="nm">Champagne</div></div>
+    </div>
+
+    <p class="ev-note">The more it catches the light, the better &#9825;</p>
+
+    <p class="sub-label">OUTFIT INSPIRATION</p>
+    <span class="who">WOMEN</span>
+    <div class="outfits">
+      <div class="outfit"><svg class="oi" viewBox="0 0 48 48" role="img" aria-label="Shimmery Gown"><use href="#ic-gown"/></svg><div class="on">Shimmery Gown</div></div>
+      <div class="outfit"><svg class="oi" viewBox="0 0 48 48" role="img" aria-label="Lehenga"><use href="#ic-lehenga"/></svg><div class="on">Lehenga</div></div>
+      <div class="outfit"><svg class="oi" viewBox="0 0 48 48" role="img" aria-label="Salwar Kameez"><use href="#ic-kurta-set"/></svg><div class="on">Salwar Kameez</div></div>
+      <div class="outfit"><svg class="oi" viewBox="0 0 48 48" role="img" aria-label="Shimmery Saree"><use href="#ic-saree"/></svg><div class="on">Shimmery Saree</div></div>
+    </div>
+    <span class="who">MEN</span>
+    <div class="outfits">
+      <div class="outfit"><svg class="oi" viewBox="0 0 48 48" role="img" aria-label="Sequin Blazer"><use href="#ic-blazer"/></svg><div class="on">Sequin Blazer</div></div>
+      <div class="outfit"><svg class="oi" viewBox="0 0 48 48" role="img" aria-label="Shimmer Blazer"><use href="#ic-blazer"/></svg><div class="on">Shimmer Blazer</div></div>
+      <div class="outfit"><svg class="oi" viewBox="0 0 48 48" role="img" aria-label="Velvet Blazer"><use href="#ic-blazer"/></svg><div class="on">Velvet Blazer</div></div>
+      <div class="outfit"><svg class="oi" viewBox="0 0 48 48" role="img" aria-label="Blazer with Trousers"><use href="#ic-blazer"/></svg><div class="on">Blazer with Trousers</div></div>
+      <div class="outfit"><svg class="oi" viewBox="0 0 48 48" role="img" aria-label="Indo-Western Jacket Set"><use href="#ic-bandhgala"/></svg><div class="on">Indo-Western Jacket Set</div></div>
+      <div class="outfit"><svg class="oi" viewBox="0 0 48 48" role="img" aria-label="Shimmery Kurta"><use href="#ic-kurta"/></svg><div class="on">Shimmery Kurta</div></div>
+    </div>
+  </section>
+
+  <!-- ================= WEDDING DAY ================= -->
+  <section class="panel wedding">
+    <div class="ev-icon"><svg viewBox="0 0 48 48" aria-hidden="true"><use href="#ev-wedding"/></svg></div>
+    <h2 class="ev-name">VIDHI &amp; WEDDING</h2>
+    <p class="ev-theme">Royal Maharashtrian Theme</p>
+    <p class="ev-desc">Rooted in tradition, draped in royalty. Celebrate in rich weaves, heritage silhouettes and timeless elegance.</p>
+
+    <p class="sub-label">COLOURS</p>
+    <div class="swatches">
+      <div class="swatch"><div class="dot" style="background:#f6b0a0"></div><div class="nm">Peach Pink</div></div>
+      <div class="swatch"><div class="dot" style="background:#ef6f55"></div><div class="nm">Coral</div></div>
+      <div class="swatch"><div class="dot" style="background:#e2447c"></div><div class="nm">Rani Pink</div></div>
+      <div class="swatch"><div class="dot" style="background:#f7ecd8"></div><div class="nm">Cream</div></div>
+      <div class="swatch"><div class="dot" style="background:#f08a2d"></div><div class="nm">Orange</div></div>
+      <div class="swatch"><div class="dot" style="background:#d4a43c"></div><div class="nm">Gold</div></div>
+      <div class="swatch"><div class="dot" style="background:#f8f3e6"></div><div class="nm">Ivory</div></div>
+    </div>
+
+    <p class="sub-label">OUTFIT INSPIRATION</p>
+    <span class="who">WOMEN</span>
+    <div class="outfits">
+      <div class="outfit"><svg class="oi" viewBox="0 0 48 48" role="img" aria-label="Paithani Saree"><use href="#ic-saree"/></svg><div class="on">Paithani Saree</div></div>
+      <div class="outfit"><svg class="oi" viewBox="0 0 48 48" role="img" aria-label="Nauvari Saree"><use href="#ic-saree"/></svg><div class="on">Nauvari Saree</div></div>
+      <div class="outfit"><svg class="oi" viewBox="0 0 48 48" role="img" aria-label="Silk Saree"><use href="#ic-saree"/></svg><div class="on">Silk Saree</div></div>
+      <div class="outfit"><svg class="oi" viewBox="0 0 48 48" role="img" aria-label="Kanjeevaram Saree"><use href="#ic-saree"/></svg><div class="on">Kanjeevaram Saree</div></div>
+    </div>
+    <p class="ev-note">Sarees for the ladies, please &#9825;</p>
+    <span class="who">MEN</span>
+    <div class="outfits">
+      <div class="outfit"><svg class="oi" viewBox="0 0 48 48" role="img" aria-label="Sherwani with Dhoti"><use href="#ic-sherwani"/></svg><div class="on">Sherwani with Dhoti</div></div>
+      <div class="outfit"><svg class="oi" viewBox="0 0 48 48" role="img" aria-label="Sherwani with Stole"><use href="#ic-sherwani"/></svg><div class="on">Sherwani with Stole</div></div>
+      <div class="outfit"><svg class="oi" viewBox="0 0 48 48" role="img" aria-label="Kurta with Dhoti"><use href="#ic-kurta"/></svg><div class="on">Kurta with Dhoti</div></div>
+      <div class="outfit"><svg class="oi" viewBox="0 0 48 48" role="img" aria-label="Sherwani with Saafa"><use href="#ic-saafa"/></svg><div class="on">Sherwani with Saafa</div></div>
+      <div class="outfit"><svg class="oi" viewBox="0 0 48 48" role="img" aria-label="Sherwani"><use href="#ic-sherwani"/></svg><div class="on">Sherwani</div></div>
+    </div>
+  </section>
+
+  <div class="mantras">
+    <span class="m"><span class="lotus">&#129719;</span> Embrace the vibe</span>
+    <span class="m"><span class="lotus">&#129719;</span> Dress to express</span>
+    <span class="m"><span class="lotus">&#129719;</span> Be comfortable</span>
+    <span class="m"><span class="lotus">&#129719;</span> Most importantly, be you!</span>
+  </div>
+
+  <p class="closing">We can&rsquo;t wait to celebrate these moments with you! &#9825;</p>
+  <p class="sign">LOVE, SNEHA &amp; SANKET</p>
+
+  <a class="home-btn" href="index.html?open=1">&#8592;&nbsp; BACK TO INVITATION</a>
+</main>
+<audio id="dcMusic" src="assets/fashion.m4a" loop preload="auto"></audio>
+<button id="dcMusicToggle" type="button" aria-label="Toggle music" style="position:fixed;bottom:18px;right:18px;z-index:60;height:44px;width:44px;border-radius:9999px;background:rgba(255,255,255,.85);backdrop-filter:blur(4px);border:1px solid rgba(200,160,60,.5);box-shadow:0 2px 10px rgba(0,0,0,.15);font-size:18px;line-height:1;cursor:pointer">&#127925;</button>
+<script>
+(function(){
+  var m = document.getElementById('dcMusic');
+  var b = document.getElementById('dcMusicToggle');
+  function tryPlay(){
+    m.volume = 0.55;
+    m.play().then(function(){ b.textContent = '🎵'; b.style.opacity = '1'; }).catch(function(){ b.textContent = '🔇'; b.style.opacity = '.7'; });
+  }
+  tryPlay();
+  document.addEventListener('click', function h(e){
+    if (e.target === b) return;
+    if (m.paused) tryPlay();
+    document.removeEventListener('click', h);
+  });
+  b.addEventListener('click', function(){
+    if (m.paused) { m.play(); b.textContent = '🎵'; b.style.opacity = '1'; }
+    else { m.pause(); b.textContent = '🔇'; b.style.opacity = '.7'; }
+  });
+})();
+</script>
+</body>
+</html>
